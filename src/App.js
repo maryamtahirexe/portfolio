@@ -358,7 +358,7 @@ function Skills() {
 const projects = [
   {
     title: "Sports League Scheduler",
-    desc: "Add your project description here. What problem does it solve? What tech did you use?",
+    desc: "A full-stack web app that handles the resources which are necessary in sports league.",
     tags: ["HTML", "Python", "JavaScript"],
     emoji: "</>",
     color: "from-pink-500/10 to-rose-500/10",
