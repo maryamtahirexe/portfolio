@@ -154,7 +154,7 @@ function Hero() {
             </div>
             <div className="absolute -top-4 -right-4 bg-[#1a0535]/90 backdrop-blur border border-pink-500/30 rounded-2xl px-4 py-2.5 shadow-xl">
               <div className="text-xs text-slate-400 font-medium">Degree</div>
-              <div className="text-pink-300 font-bold text-sm mt-0.5">BSc SE • 2026</div>
+              <div className="text-pink-300 font-bold text-sm mt-0.5">BSSE • 2026</div>
             </div>
           </div>
         </div>
