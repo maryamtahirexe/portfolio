@@ -93,8 +93,8 @@ function Hero() {
             <span className="text-purple-400 font-semibold">
               COMSATS University Islamabad
             </span>
-            . Crafting beautiful, efficient software from full-stack web apps
-            to mobile experiences.
+            . Crafting beautiful, efficient software from full-stack web apps to
+            mobile experiences.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-2">
@@ -119,11 +119,35 @@ function Hero() {
               </svg>
               GitHub
             </a>
+            <a
+              href="/MaryamTahir_CV.pdf"
+              download="MaryamTahir_CV.pdf"
+              className="flex items-center gap-2 border border-slate-600 hover:border-purple-400 text-slate-300 hover:text-purple-400 px-6 py-3 rounded-2xl font-semibold transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              Download CV
+            </a>
           </div>
 
           <div className="flex gap-6 pt-2 text-sm text-slate-500">
             <span className="flex items-center gap-1.5">
-              <svg className="w-4 h-4 text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+              <svg
+                className="w-4 h-4 text-pink-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
                 <path
                   fillRule="evenodd"
                   d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -149,12 +173,18 @@ function Hero() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0118]/60 to-transparent" />
             </div>
             <div className="absolute -bottom-4 -left-6 bg-[#1a0535]/90 backdrop-blur border border-purple-500/30 rounded-2xl px-4 py-2.5 shadow-xl">
-              <div className="text-xs text-slate-400 font-medium">Current Focus</div>
-              <div className="text-purple-300 font-bold text-sm mt-0.5">MERN Stack Dev</div>
+              <div className="text-xs text-slate-400 font-medium">
+                Current Focus
+              </div>
+              <div className="text-purple-300 font-bold text-sm mt-0.5">
+                MERN Stack Dev
+              </div>
             </div>
             <div className="absolute -top-4 -right-4 bg-[#1a0535]/90 backdrop-blur border border-pink-500/30 rounded-2xl px-4 py-2.5 shadow-xl">
               <div className="text-xs text-slate-400 font-medium">Degree</div>
-              <div className="text-pink-300 font-bold text-sm mt-0.5">BSSE • 2026</div>
+              <div className="text-pink-300 font-bold text-sm mt-0.5">
+                BSSE • 2026
+              </div>
             </div>
           </div>
         </div>
@@ -179,7 +209,14 @@ const experiences = [
     icon: "💻",
     description:
       "Worked as a full-stack web developer building and maintaining web applications using the MERN stack. Collaborated with the dev team on real client projects, implemented RESTful APIs, and built responsive React interfaces.",
-    skills: ["MongoDB", "Express.js", "React.js", "Node.js", "REST APIs", "Git"],
+    skills: [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "Node.js",
+      "REST APIs",
+      "Git",
+    ],
   },
   {
     company: "Apricot Wanderers",
@@ -195,7 +232,14 @@ const experiences = [
     icon: "💻",
     description:
       "Wearing multiple hats as a developer, designer, and video editor. Build and maintain the company's web presence, create engaging visual content, design UI/UX in Figma, and produce video content for social media and marketing.",
-    skills: ["Web Development", "Figma", "UI/UX Design", "Video Editing", "Adobe Premiere Pro", "Canva"],
+    skills: [
+      "Web Development",
+      "Figma",
+      "UI/UX Design",
+      "Video Editing",
+      "Adobe Premiere Pro",
+      "Canva",
+    ],
   },
 ];
 
@@ -214,11 +258,15 @@ function Experience() {
               <div key={i} className="relative md:pl-24 group">
                 {/* Timeline dot */}
                 <div className="absolute left-5 top-8 hidden md:flex items-center justify-center">
-                  <div className={`w-6 h-6 rounded-full ${exp.accent} shadow-lg flex items-center justify-center`}>
+                  <div
+                    className={`w-6 h-6 rounded-full ${exp.accent} shadow-lg flex items-center justify-center`}
+                  >
                     <div className="w-2 h-2 rounded-full bg-white" />
                   </div>
                   {/* Pulse ring */}
-                  <div className={`absolute w-6 h-6 rounded-full ${exp.accent} opacity-30 animate-ping`} />
+                  <div
+                    className={`absolute w-6 h-6 rounded-full ${exp.accent} opacity-30 animate-ping`}
+                  />
                 </div>
 
                 {/* Card */}
@@ -228,25 +276,37 @@ function Experience() {
                   {/* Top row */}
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
                     <div className="flex items-center gap-4">
-                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${exp.gradient} border ${exp.border} flex items-center justify-center text-2xl shadow-lg`}>
+                      <div
+                        className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${exp.gradient} border ${exp.border} flex items-center justify-center text-2xl shadow-lg`}
+                      >
                         {exp.icon}
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-xl">{exp.role}</h3>
-                        <p className="text-slate-300 font-semibold text-base mt-0.5">{exp.company}</p>
+                        <h3 className="text-white font-bold text-xl">
+                          {exp.role}
+                        </h3>
+                        <p className="text-slate-300 font-semibold text-base mt-0.5">
+                          {exp.company}
+                        </p>
                       </div>
                     </div>
                     <div className="flex flex-col items-end gap-2">
-                      <span className={`text-xs font-bold px-3 py-1 rounded-full border ${exp.typeColor}`}>
+                      <span
+                        className={`text-xs font-bold px-3 py-1 rounded-full border ${exp.typeColor}`}
+                      >
                         {exp.type}
                       </span>
-                      <span className="text-slate-500 text-sm font-medium">{exp.duration}</span>
+                      <span className="text-slate-500 text-sm font-medium">
+                        {exp.duration}
+                      </span>
                       <span className="text-slate-600 text-xs">{exp.year}</span>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-slate-400 leading-relaxed mb-6">{exp.description}</p>
+                  <p className="text-slate-400 leading-relaxed mb-6">
+                    {exp.description}
+                  </p>
 
                   {/* Skill chips */}
                   <div className="flex flex-wrap gap-2">
@@ -285,7 +345,14 @@ const skillGroups = [
     color: "from-cyan-400/20 to-blue-400/20",
     border: "border-cyan-500/20",
     tag: "text-cyan-300",
-    skills: ["React JS", "Next.js", "Node.js", "Express.js", "Tailwind CSS", "MERN Stack"],
+    skills: [
+      "React JS",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "Tailwind CSS",
+      "MERN Stack",
+    ],
   },
   {
     title: "Mobile",
@@ -369,7 +436,7 @@ const projects = [
   {
     title: "Final Year Project: Literera",
     desc: "A full-stack web application providing 4 tools to ensure a smooth writing experience for researchers and students.",
-    tags: ["Tailwind", "MERN Stack","MongoDB", "Express", "React", "Node"],
+    tags: ["Tailwind", "MERN Stack", "MongoDB", "Express", "React", "Node"],
     emoji: "</>",
     color: "from-purple-500/10 to-violet-500/10",
     border: "border-purple-500/20",
@@ -389,7 +456,7 @@ const projects = [
   {
     title: "Final Internship Project",
     desc: "Full-stack MERN application which includes and admin portal and a user portal.",
-    tags: ["MongoDB", "Express", "React", "Node","Next.js"],
+    tags: ["MongoDB", "Express", "React", "Node", "Next.js"],
     emoji: "</>",
     color: "from-amber-500/10 to-yellow-500/10",
     border: "border-amber-500/20",
@@ -478,8 +545,18 @@ function ProjectCard({ p }) {
         className={`flex items-center gap-2 text-sm font-semibold ${p.accent} group-hover:gap-3 transition-all duration-300`}
       >
         View on GitHub
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        <svg
+          className="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
         </svg>
       </a>
     </div>
@@ -492,7 +569,8 @@ function Projects() {
       <div className="max-w-6xl mx-auto">
         <SectionHeader label="My Work" title="Featured Projects" />
         <p className="text-slate-400 text-center mt-4 max-w-lg mx-auto">
-          Replace the repo links and descriptions with your actual GitHub projects!
+          Replace the repo links and descriptions with your actual GitHub
+          projects!
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
           {projects.map((p) => (
@@ -512,7 +590,8 @@ function Contact() {
         <SectionHeader label="Get In Touch" title="Let's Work Together" />
         <p className="text-slate-400 mt-4 text-lg">
           I'm actively looking for internships and full-time opportunities.
-          Whether you have a project or just want to say hi — my inbox is always open!
+          Whether you have a project or just want to say hi — my inbox is always
+          open!
         </p>
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <a
@@ -528,7 +607,10 @@ function Contact() {
               <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
             </svg>
           </SocialLink>
-          <SocialLink href="https://www.linkedin.com/in/maryamtahir00/" label="LinkedIn">
+          <SocialLink
+            href="https://www.linkedin.com/in/maryamtahir00/"
+            label="LinkedIn"
+          >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
@@ -570,8 +652,7 @@ function SectionHeader({ label, title }) {
 function Footer() {
   return (
     <footer className="relative z-10 border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
-      Maryam Tahir ·{" "}
-      {new Date().getFullYear()}
+      Maryam Tahir · {new Date().getFullYear()}
     </footer>
   );
 }
