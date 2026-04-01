@@ -569,8 +569,7 @@ function Projects() {
       <div className="max-w-6xl mx-auto">
         <SectionHeader label="My Work" title="Featured Projects" />
         <p className="text-slate-400 text-center mt-4 max-w-lg mx-auto">
-          Replace the repo links and descriptions with your actual GitHub
-          projects!
+          The following are the projects on which I have worked on, with their Github Repositories!
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
           {projects.map((p) => (
