@@ -222,7 +222,7 @@ const experiences = [
     company: "Apricot Wanderers",
     role: "Part-Time Developer & Designer",
     duration: "Ongoing • Hybrid",
-    year: "2024 – Present",
+    year: "2023 – Present",
     type: "Part-Time",
     typeColor: "text-pink-400 bg-pink-400/10 border-pink-400/20",
     gradient: "from-pink-500/10 to-purple-500/10",
