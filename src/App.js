@@ -424,8 +424,8 @@ function Skills() {
 // ─── Projects ─────────────────────────────────────────────────────────────────
 const projects = [
   {
-    title: "Sports League Scheduler",
-    desc: "A full-stack web app that handles the resources which are necessary in sports league.",
+    title: "AI-Driven Sports League Scheduling System",
+    desc: "A full-stack scheduling platform designed to automate sports league operations, including match planning, team management, and resource allocation. The system incorporates scheduling logic to avoid conflicts, optimize time slots, and manage venues efficiently. Built with a dynamic frontend and Python-powered backend for handling scheduling constraints and real-time updates.",
     tags: ["HTML", "Python", "JavaScript"],
     emoji: "</>",
     color: "from-pink-500/10 to-rose-500/10",
@@ -434,9 +434,9 @@ const projects = [
     repo: "https://github.com/maryamtahirexe/sports-scheduler.git",
   },
   {
-    title: "Final Year Project: Literera",
-    desc: "A full-stack web application providing 4 tools to ensure a smooth writing experience for researchers and students.",
-    tags: ["Tailwind", "MERN Stack", "MongoDB", "Express", "React", "Node"],
+    title: "Literera – Intelligent Research Writing Assistant",
+    desc: "A full-stack web application providing 4 tools to ensure a smooth writing experience for researchers and students. Designed with scalability and usability in mind, leveraging REST APIs and modular architecture.",
+    tags: ["Tailwind", "MongoDB", "Express", "React", "Node","Python","REST API","FAST API","Transformer"],
     emoji: "</>",
     color: "from-purple-500/10 to-violet-500/10",
     border: "border-purple-500/20",
@@ -445,8 +445,8 @@ const projects = [
   },
   {
     title: "KarayeDar",
-    desc: "A web application built with MERN Stack to handle tenant management.",
-    tags: ["React Native", "Firebase"],
+    desc: "A web application built with MERN Stack to handle tenant management, enabling landlords to manage tenants, rent tracking, damage control and property records in real-time.",
+    tags: ["MERN Stack", "MongoDB","Node.js","Express","React","Tailwind"],
     emoji: "</>",
     color: "from-cyan-500/10 to-sky-500/10",
     border: "border-cyan-500/20",
@@ -455,7 +455,7 @@ const projects = [
   },
   {
     title: "Final Internship Project",
-    desc: "Full-stack MERN application which includes and admin portal and a user portal.",
+    desc: "A full-stack MERN + Next.js application featuring separate admin and user portals. Includes product management, role-based access control, and optimized frontend rendering using server-side rendering (SSR). Designed with scalable architecture and clean API integration.",
     tags: ["MongoDB", "Express", "React", "Node", "Next.js"],
     emoji: "</>",
     color: "from-amber-500/10 to-yellow-500/10",
@@ -464,9 +464,9 @@ const projects = [
     repo: "https://github.com/maryamtahirexe/SmartStores.git",
   },
   {
-    title: "DiagnoPro",
-    desc: "Python application that predicts the disease based on symptoms and recommends tips.",
-    tags: ["Python", "tkinter", "Prolog"],
+    title: "DiagnoPro – AI-Based Disease Diagnosis System using Prolog",
+    desc: "An intelligent diagnostic system that predicts diseases based on user-provided symptoms using rule-based reasoning and logical inference with Genetic Algorithm. The application integrates Prolog’s backward chaining algorithm for decision-making, enabling accurate disease prediction through knowledge-based rules. A Python-based GUI (Tkinter) provides an interactive interface, bridging symbolic AI with user-friendly design.",
+    tags: ["Python", "tkinter", "Prolog","Genetic Algorithm"],
     emoji: "</>",
     color: "from-green-500/10 to-emerald-500/10",
     border: "border-green-500/20",
@@ -474,8 +474,8 @@ const projects = [
     repo: "https://github.com/maryamtahirexe/HealthProject.git",
   },
   {
-    title: "FYP Figma Design Prototype",
-    desc: "UI/UX design prototype made in Figma.",
+    title: "Literera UI/UX Prototype",
+    desc: "A complete UI/UX prototype designed in Figma for the Literera platform, focusing on usability, accessibility, and seamless user experience. Includes wireframes, interactive flows, and high-fidelity mockups following modern design principles.",
     tags: ["Figma", "Design", "Prototyping"],
     emoji: "</>",
     color: "from-indigo-500/10 to-blue-500/10",
@@ -484,9 +484,9 @@ const projects = [
     repo: "https://github.com/maryamtahirexe/Literera-Design.git",
   },
   {
-    title: "Deployment Project",
-    desc: "Deployed an application using AWS services. Set up CI/CD pipelines and containerized the app with Docker.",
-    tags: ["AWS", "Docker", "Jenkins", "CI/CD"],
+    title: "Cloud-Native Application Deployment with CI/CD Pipeline",
+    desc: "Implemented a cloud-based deployment pipeline using AWS services, Docker containerization, and Jenkins automation. Designed a CI/CD workflow to ensure continuous integration, automated testing, and seamless deployment, improving application reliability and scalability.",
+    tags: ["AWS", "Docker", "Jenkins", "CI/CD","Docker Compose"],
     emoji: "</>",
     color: "from-orange-500/10 to-red-500/10",
     border: "border-orange-500/20",
@@ -494,8 +494,8 @@ const projects = [
     repo: "https://github.com/maryamtahirexe/assignmentpart2.git",
   },
   {
-    title: "30 Percent Testing Of FYP",
-    desc: "I have tested my final year project using Cypress and JavaScript. I have written comprehensive test cases to ensure the functionality and reliability of the application.",
+    title: "End-to-End Testing Suite for MERN Application using Cypress",
+    desc: "Developed a comprehensive testing framework using Cypress to validate the functionality, performance, and reliability of the Literera application. Implemented end-to-end test cases covering user workflows, API responses, and UI interactions to ensure production-level stability.",
     tags: ["Cypress", "JavaScript", "Testing"],
     emoji: "</>",
     color: "from-teal-500/10 to-cyan-500/10",
