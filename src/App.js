@@ -352,6 +352,8 @@ const skillGroups = [
       "Express.js",
       "Tailwind CSS",
       "MERN Stack",
+      "REST API",
+      "FAST API",
     ],
   },
   {
