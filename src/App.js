@@ -426,6 +426,16 @@ function Skills() {
 // ─── Projects ─────────────────────────────────────────────────────────────────
 const projects = [
   {
+  title: "BeansSprout – Full-Stack Food Ordering App",
+  desc: "A MERN stack food ordering platform with JWT auth (access + refresh token rotation), role-based access control, and layered security via Helmet, rate limiting, and NoSQL injection protection. The frontend uses Redux Toolkit for state, Framer Motion for animations, and React.lazy() for code splitting. Axios interceptors handle silent token refresh for seamless, secure sessions.",
+  tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux Toolkit", "Framer Motion", "JWT", "bcrypt", "Axios", "Tailwind CSS", "Mongoose", "REST API"],
+  emoji: "</>",
+  color: "from-lime-500/10 to-green-500/10",
+  border: "border-lime-500/20",
+  accent: "text-lime-400",
+  repo: "https://github.com/maryamtahirexe/BeansSprout-Frontend.git",
+},
+  {
     title: "AI-Driven Sports League Scheduling System",
     desc: "A full-stack scheduling platform designed to automate sports league operations, including match planning, team management, and resource allocation. The system incorporates scheduling logic to avoid conflicts, optimize time slots, and manage venues efficiently. Built with a dynamic frontend and Python-powered backend for handling scheduling constraints and real-time updates.",
     tags: ["HTML", "Python", "JavaScript"],
