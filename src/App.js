@@ -447,7 +447,7 @@ const projects = [
   },
   {
     title: "Literera – Intelligent Research Writing Assistant",
-    desc: "A full-stack web application providing 4 tools to ensure a smooth writing experience for researchers and students. Designed with scalability and usability in mind, leveraging REST APIs and modular architecture.",
+    desc: "LiterEra is a full-stack AI-powered research assistant offering four tools: a Citation Manager that scrapes and reformats citations across multiple styles, a Plagiarism Detector that highlights matched text with source links, a Paper Discovery Engine that ranks relevant papers by relevance score and citation count, and a PDF Analyzer that extracts summaries, keywords, insights, and weaknesses from uploaded research papers.",
     tags: ["Tailwind", "MongoDB", "Express", "React", "Node","Python","REST API","FAST API","Transformer"],
     emoji: "</>",
     color: "from-purple-500/10 to-violet-500/10",
