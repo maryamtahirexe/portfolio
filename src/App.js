@@ -425,6 +425,16 @@ function Skills() {
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 const projects = [
+    {
+    title: "Literera – Intelligent Research Writing Assistant",
+    desc: "LiterEra is a full-stack AI-powered research assistant offering four tools: a Citation Manager that scrapes and reformats citations across multiple styles, a Plagiarism Detector that highlights matched text with source links, a Paper Discovery Engine that ranks relevant papers by relevance score and citation count, and a PDF Analyzer that extracts summaries, keywords, insights, and weaknesses from uploaded research papers.",
+    tags: ["Tailwind", "MongoDB", "Express", "React", "Node","Python","REST API","FAST API","Transformer"],
+    emoji: "</>",
+    color: "from-purple-500/10 to-violet-500/10",
+    border: "border-purple-500/20",
+    accent: "text-purple-400",
+    repo: "https://github.com/maryamtahirexe/literera.git",
+  },
   {
   title: "BeansSprout – Full-Stack Food Ordering App",
   desc: "A MERN stack food ordering platform with JWT auth (access + refresh token rotation), role-based access control, and layered security via Helmet, rate limiting, and NoSQL injection protection. The frontend uses Redux Toolkit for state, Framer Motion for animations, and React.lazy() for code splitting. Axios interceptors handle silent token refresh for seamless, secure sessions.",
@@ -436,6 +446,16 @@ const projects = [
   repo: "https://github.com/maryamtahirexe/BeansSprout-Frontend.git",
 },
   {
+  title: "HotelHub – Flutter Hotel Booking App",
+  desc: "A Flutter mobile app for searching and booking hotels with advanced filters and facility selection. Users can register their own hotel, manage and edit reservations, and submit feedback — all within a clean, responsive mobile experience.",
+  tags: ["Flutter", "Dart", "Mobile", "Firebase", "REST API"],
+  emoji: "</>",
+  color: "from-sky-500/10 to-blue-500/10",
+  border: "border-sky-500/20",
+  accent: "text-sky-400",
+  repo: "https://github.com/maryamtahirexe/Fluuter-app.git",
+},
+  {
     title: "AI-Driven Sports League Scheduling System",
     desc: "A full-stack scheduling platform designed to automate sports league operations, including match planning, team management, and resource allocation. The system incorporates scheduling logic to avoid conflicts, optimize time slots, and manage venues efficiently. Built with a dynamic frontend and Python-powered backend for handling scheduling constraints and real-time updates.",
     tags: ["HTML", "Python", "JavaScript"],
@@ -444,16 +464,6 @@ const projects = [
     border: "border-pink-500/20",
     accent: "text-pink-400",
     repo: "https://github.com/maryamtahirexe/sports-scheduler.git",
-  },
-  {
-    title: "Literera – Intelligent Research Writing Assistant",
-    desc: "LiterEra is a full-stack AI-powered research assistant offering four tools: a Citation Manager that scrapes and reformats citations across multiple styles, a Plagiarism Detector that highlights matched text with source links, a Paper Discovery Engine that ranks relevant papers by relevance score and citation count, and a PDF Analyzer that extracts summaries, keywords, insights, and weaknesses from uploaded research papers.",
-    tags: ["Tailwind", "MongoDB", "Express", "React", "Node","Python","REST API","FAST API","Transformer"],
-    emoji: "</>",
-    color: "from-purple-500/10 to-violet-500/10",
-    border: "border-purple-500/20",
-    accent: "text-purple-400",
-    repo: "https://github.com/maryamtahirexe/literera.git",
   },
   {
     title: "KarayeDar",
