@@ -241,6 +241,29 @@ const experiences = [
       "Canva",
     ],
   },
+  {
+  company: "BangoPure Limited",
+  role: "Administration & Marketing Manager",
+  duration: "Full-Time • Remote",
+  year: "April 2026 – Present",
+  type: "Full-Time",
+  typeColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
+  gradient: "from-emerald-500/10 to-green-500/10",
+  border: "border-emerald-500/20",
+  glow: "shadow-emerald-900/20",
+  accent: "bg-emerald-400",
+  icon: "💼",
+  description:
+    "Leading the marketing team at BangoPure Limited, managing campaigns and driving business growth through strategic planning and performance tracking. Also handles company administration, maintaining close interaction with investors and partners to support organizational goals and build strong professional relationships.",
+  skills: [
+    "Marketing Strategy",
+    "Campaign Management",
+    "Team Leadership",
+    "Administration",
+    "Investor Relations",
+    "Partner Management",
+  ],
+},
 ];
 
 function Experience() {
@@ -433,7 +456,7 @@ const projects = [
     color: "from-purple-500/10 to-violet-500/10",
     border: "border-purple-500/20",
     accent: "text-purple-400",
-    repo: "https://github.com/maryamtahirexe/literera.git",
+    repo: "https://github.com/maryamtahirexe/LiterEraComplete.git",
   },
   {
   title: "BeansSprout – Full-Stack Food Ordering App",
