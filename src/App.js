@@ -27,6 +27,8 @@ function Particles() {
 // ─── Nav ──────────────────────────────────────────────────────────────────────
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", fn);
@@ -34,24 +36,70 @@ function Nav() {
   }, []);
 
   const links = ["About", "Experience", "Skills", "Projects", "Contact"];
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[#0a0118]/80 backdrop-blur-xl shadow-lg shadow-purple-900/20"
+        scrolled || open
+          ? "bg-[#0a0118]/90 backdrop-blur-xl shadow-lg shadow-purple-900/20"
           : ""
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <span className="font-display text-2xl font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+        <a
+          href="#about"
+          className="font-display text-2xl font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"
+        >
           MT
-        </span>
-        <ul className="flex gap-8">
+        </a>
+
+        {/* Desktop links */}
+        <ul className="hidden md:flex gap-8">
           {links.map((l) => (
             <li key={l}>
               <a
                 href={`#${l.toLowerCase()}`}
                 className="text-slate-300 hover:text-pink-400 transition-colors duration-300 text-sm tracking-widest uppercase font-medium"
+              >
+                {l}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setOpen((o) => !o)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          className="md:hidden relative w-9 h-9 flex flex-col items-center justify-center gap-1.5 rounded-xl border border-slate-700 hover:border-purple-400 transition-colors"
+        >
+          <span
+            className={`block w-4 h-[1.5px] bg-slate-200 transition-transform duration-300 ${
+              open ? "translate-y-[3px] rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`block w-4 h-[1.5px] bg-slate-200 transition-transform duration-300 ${
+              open ? "-translate-y-[3px] -rotate-45" : ""
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          open ? "max-h-80 border-t border-white/10" : "max-h-0"
+        }`}
+      >
+        <ul className="flex flex-col px-6 py-4 gap-1">
+          {links.map((l) => (
+            <li key={l}>
+              <a
+                href={`#${l.toLowerCase()}`}
+                onClick={() => setOpen(false)}
+                className="block py-2.5 text-slate-300 hover:text-pink-400 transition-colors duration-300 text-sm tracking-widest uppercase font-medium"
               >
                 {l}
               </a>
@@ -68,11 +116,11 @@ function Hero() {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center relative z-10 px-6 pt-20"
+      className="min-h-screen flex items-center justify-center relative z-10 px-6 pt-28 pb-16 md:pt-20"
     >
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Text */}
-        <div className="space-y-6 animate-fadeInUp">
+        <div className="space-y-6 animate-fadeInUp order-2 lg:order-1 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 bg-pink-500/10 border border-pink-500/20 rounded-full px-4 py-1.5">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-pink-300 text-xs tracking-widest uppercase font-semibold">
@@ -80,7 +128,7 @@ function Hero() {
             </span>
           </div>
 
-          <h1 className="font-display text-6xl lg:text-7xl font-black leading-tight">
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-tight">
             <span className="text-white">Maryam</span>
             <br />
             <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
@@ -88,7 +136,7 @@ function Hero() {
             </span>
           </h1>
 
-          <p className="text-slate-300 text-lg leading-relaxed max-w-lg">
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
             Software Engineering student at{" "}
             <span className="text-purple-400 font-semibold">
               COMSATS University Islamabad
@@ -97,7 +145,7 @@ function Hero() {
             mobile experiences.
           </p>
 
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-wrap gap-3 pt-2 justify-center lg:justify-start">
             <a
               href="mailto:maryamtahir061@gmail.com"
               className="group flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white px-6 py-3 rounded-2xl font-semibold transition-all duration-300 shadow-lg shadow-purple-900/40 hover:shadow-purple-500/30 hover:-translate-y-0.5"
@@ -141,7 +189,7 @@ function Hero() {
             </a>
           </div>
 
-          <div className="flex gap-6 pt-2 text-sm text-slate-500">
+          <div className="flex gap-6 pt-2 text-sm text-slate-500 justify-center lg:justify-start">
             <span className="flex items-center gap-1.5">
               <svg
                 className="w-4 h-4 text-pink-400"
@@ -160,11 +208,11 @@ function Hero() {
         </div>
 
         {/* Photo card */}
-        <div className="flex justify-center lg:justify-end animate-fadeInRight">
+        <div className="flex justify-center lg:justify-end animate-fadeInRight order-1 lg:order-2">
           <div className="relative">
             <div className="absolute -inset-6 rounded-full bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-cyan-500/20 blur-2xl animate-spin-slow" />
             <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-pink-500/30 to-purple-600/30 blur-xl" />
-            <div className="relative w-72 h-80 rounded-3xl overflow-hidden border border-purple-500/30 shadow-2xl shadow-purple-900/50">
+            <div className="relative w-60 h-72 sm:w-72 sm:h-80 rounded-3xl overflow-hidden border border-purple-500/30 shadow-2xl shadow-purple-900/50">
               <img
                 src="/profile.jpg"
                 alt="Maryam Tahir"
@@ -172,17 +220,17 @@ function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0118]/60 to-transparent" />
             </div>
-            <div className="absolute -bottom-4 -left-6 bg-[#1a0535]/90 backdrop-blur border border-purple-500/30 rounded-2xl px-4 py-2.5 shadow-xl">
-              <div className="text-xs text-slate-400 font-medium">
+            <div className="absolute -bottom-4 -left-4 sm:-left-6 bg-[#1a0535]/90 backdrop-blur border border-purple-500/30 rounded-2xl px-3.5 py-2 sm:px-4 sm:py-2.5 shadow-xl">
+              <div className="text-[10px] sm:text-xs text-slate-400 font-medium">
                 Current Focus
               </div>
-              <div className="text-purple-300 font-bold text-sm mt-0.5">
+              <div className="text-purple-300 font-bold text-xs sm:text-sm mt-0.5">
                 MERN Stack Dev
               </div>
             </div>
-            <div className="absolute -top-4 -right-4 bg-[#1a0535]/90 backdrop-blur border border-pink-500/30 rounded-2xl px-4 py-2.5 shadow-xl">
-              <div className="text-xs text-slate-400 font-medium">Degree</div>
-              <div className="text-pink-300 font-bold text-sm mt-0.5">
+            <div className="absolute -top-4 -right-3 sm:-right-4 bg-[#1a0535]/90 backdrop-blur border border-pink-500/30 rounded-2xl px-3.5 py-2 sm:px-4 sm:py-2.5 shadow-xl">
+              <div className="text-[10px] sm:text-xs text-slate-400 font-medium">Degree</div>
+              <div className="text-pink-300 font-bold text-xs sm:text-sm mt-0.5">
                 BSSE • 2026
               </div>
             </div>
@@ -196,10 +244,33 @@ function Hero() {
 // ─── Experience ───────────────────────────────────────────────────────────────
 const experiences = [
   {
+    company: "BangoPure Limited",
+    role: "Administration & Marketing Manager",
+    duration: "Full-Time • Remote",
+    year: "April 2026 – Present",
+    type: "Full-Time",
+    typeColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
+    gradient: "from-emerald-500/10 to-green-500/10",
+    border: "border-emerald-500/20",
+    glow: "shadow-emerald-900/20",
+    accent: "bg-emerald-400",
+    icon: "💼",
+    description:
+      "Leading the marketing team at BangoPure Limited, managing campaigns and driving business growth through strategic planning and performance tracking. Also handles company administration, maintaining close interaction with investors and partners to support organizational goals and build strong professional relationships.",
+    skills: [
+      "Marketing Strategy",
+      "Campaign Management",
+      "Team Leadership",
+      "Administration",
+      "Investor Relations",
+      "Partner Management",
+    ],
+  },
+  {
     company: "Texinity Technologies",
     role: "Web Developer Intern",
     duration: "2 Months • Onsite",
-    year: "2024",
+    year: "July 2024 – August 2024",
     type: "Internship",
     typeColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/20",
     gradient: "from-cyan-500/10 to-blue-500/10",
@@ -208,7 +279,7 @@ const experiences = [
     accent: "bg-cyan-400",
     icon: "💻",
     description:
-      "Worked as a full-stack web developer building and maintaining web applications using the MERN stack. Collaborated with the dev team on real client projects, implemented RESTful APIs, and built responsive React interfaces.",
+      "Developed a role-based web application with separate admin and user portals, enabling store creation, owner management, payments, request handling, and inventory management for cash-and-carry businesses. Collaborated with the dev team on real client projects using the MERN stack.",
     skills: [
       "MongoDB",
       "Express.js",
@@ -219,19 +290,35 @@ const experiences = [
     ],
   },
   {
+    company: "INTERNNCRAFT",
+    role: "Full Stack Development Intern",
+    duration: "2 Months • Remote",
+    year: "July 2024 – August 2024",
+    type: "Internship",
+    typeColor: "text-violet-400 bg-violet-400/10 border-violet-400/20",
+    gradient: "from-violet-500/10 to-indigo-500/10",
+    border: "border-violet-500/20",
+    glow: "shadow-violet-900/20",
+    accent: "bg-violet-400",
+    icon: "🧩",
+    description:
+      "Successfully completed multiple small-scale full-stack projects, gaining hands-on experience building end-to-end web applications — from planning and database design to deployment and maintenance.",
+    skills: ["Full-Stack Dev", "Database Design", "Deployment", "Planning"],
+  },
+  {
     company: "Apricot Wanderers",
     role: "Part-Time Developer & Designer",
-    duration: "Ongoing • Hybrid",
-    year: "2023 – 2026",
+    duration: "Hybrid",
+    year: "Feb 2023 – Jan 2024",
     type: "Part-Time",
     typeColor: "text-pink-400 bg-pink-400/10 border-pink-400/20",
     gradient: "from-pink-500/10 to-purple-500/10",
     border: "border-pink-500/20",
     glow: "shadow-pink-900/20",
     accent: "bg-pink-400",
-    icon: "💻",
+    icon: "🎨",
     description:
-      "Wearing multiple hats as a developer, designer, and video editor. Build and maintain the company's web presence, create engaging visual content, design UI/UX in Figma, and produce video content for social media and marketing.",
+      "Wore multiple hats as a designer, developer, tester, and video/graphic creator, contributing to multiple projects for international clients by handling small-scale tasks across different project phases.",
     skills: [
       "Web Development",
       "Figma",
@@ -241,34 +328,11 @@ const experiences = [
       "Canva",
     ],
   },
-  {
-  company: "BangoPure Limited",
-  role: "Administration & Marketing Manager",
-  duration: "Full-Time • Remote",
-  year: "April 2026 – Present",
-  type: "Full-Time",
-  typeColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
-  gradient: "from-emerald-500/10 to-green-500/10",
-  border: "border-emerald-500/20",
-  glow: "shadow-emerald-900/20",
-  accent: "bg-emerald-400",
-  icon: "💼",
-  description:
-    "Leading the marketing team at BangoPure Limited, managing campaigns and driving business growth through strategic planning and performance tracking. Also handles company administration, maintaining close interaction with investors and partners to support organizational goals and build strong professional relationships.",
-  skills: [
-    "Marketing Strategy",
-    "Campaign Management",
-    "Team Leadership",
-    "Administration",
-    "Investor Relations",
-    "Partner Management",
-  ],
-},
 ];
 
 function Experience() {
   return (
-    <section id="experience" className="py-28 relative z-10 px-6">
+    <section id="experience" className="py-20 sm:py-28 relative z-10 px-6">
       <div className="max-w-6xl mx-auto">
         <SectionHeader label="Where I've Worked" title="Experience" />
 
@@ -294,26 +358,26 @@ function Experience() {
 
                 {/* Card */}
                 <div
-                  className={`relative bg-gradient-to-br ${exp.gradient} border ${exp.border} rounded-3xl p-8 hover:-translate-y-1 transition-all duration-500 hover:shadow-2xl ${exp.glow}`}
+                  className={`relative bg-gradient-to-br ${exp.gradient} border ${exp.border} rounded-3xl p-6 sm:p-8 hover:-translate-y-1 transition-all duration-500 hover:shadow-2xl ${exp.glow}`}
                 >
                   {/* Top row */}
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
                     <div className="flex items-center gap-4">
                       <div
-                        className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${exp.gradient} border ${exp.border} flex items-center justify-center text-2xl shadow-lg`}
+                        className={`shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br ${exp.gradient} border ${exp.border} flex items-center justify-center text-2xl shadow-lg`}
                       >
                         {exp.icon}
                       </div>
                       <div>
-                        <h3 className="text-white font-bold text-xl">
+                        <h3 className="text-white font-bold text-lg sm:text-xl">
                           {exp.role}
                         </h3>
-                        <p className="text-slate-300 font-semibold text-base mt-0.5">
+                        <p className="text-slate-300 font-semibold text-sm sm:text-base mt-0.5">
                           {exp.company}
                         </p>
                       </div>
                     </div>
-                    <div className="flex flex-col items-end gap-2">
+                    <div className="flex flex-col items-start sm:items-end gap-2">
                       <span
                         className={`text-xs font-bold px-3 py-1 rounded-full border ${exp.typeColor}`}
                       >
@@ -327,7 +391,7 @@ function Experience() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-slate-400 leading-relaxed mb-6">
+                  <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
                     {exp.description}
                   </p>
 
@@ -374,9 +438,11 @@ const skillGroups = [
       "Node.js",
       "Express.js",
       "Tailwind CSS",
+      "Bootstrap",
       "MERN Stack",
       "REST API",
-      "FAST API",
+      "FastAPI",
+      "Flask",
     ],
   },
   {
@@ -386,6 +452,14 @@ const skillGroups = [
     border: "border-green-500/20",
     tag: "text-green-300",
     skills: ["React Native", "Flutter"],
+  },
+  {
+    title: "Database",
+    icon: "⊹",
+    color: "from-fuchsia-400/20 to-pink-400/20",
+    border: "border-fuchsia-500/20",
+    tag: "text-fuchsia-300",
+    skills: ["MongoDB", "PostgreSQL", "Firebase Firestore"],
   },
   {
     title: "Design",
@@ -401,7 +475,7 @@ const skillGroups = [
     color: "from-purple-400/20 to-violet-400/20",
     border: "border-purple-500/20",
     tag: "text-purple-300",
-    skills: ["JUnit", "Selenium", "Cypress", "Postman"],
+    skills: ["JUnit", "Selenium", "Cypress", "Postman", "Pytest", "Zephyr Scale"],
   },
   {
     title: "Deployment",
@@ -409,16 +483,32 @@ const skillGroups = [
     color: "from-indigo-400/20 to-blue-500/20",
     border: "border-indigo-500/20",
     tag: "text-indigo-300",
-    skills: ["AWS", "Docker", "Kubernetes", "Vercel", "Railway"],
+    skills: ["AWS", "Docker", "Kubernetes", "Vercel", "Railway", "Render"],
+  },
+  {
+    title: "Video Editing",
+    icon: "⊹",
+    color: "from-red-400/20 to-orange-400/20",
+    border: "border-red-500/20",
+    tag: "text-red-300",
+    skills: ["Adobe Premiere Pro", "Clipchamp", "CapCut", "Filmora", "Canva"],
+  },
+  {
+    title: "Other Tools",
+    icon: "⊹",
+    color: "from-teal-400/20 to-cyan-400/20",
+    border: "border-teal-500/20",
+    tag: "text-teal-300",
+    skills: ["Jira", "Jenkins", "GitHub", "Hugging Face", "Cloudinary", "GMass", "Apollo.io", "Snov.io"],
   },
 ];
 
 function Skills() {
   return (
-    <section id="skills" className="py-28 relative z-10 px-6">
+    <section id="skills" className="py-20 sm:py-28 relative z-10 px-6">
       <div className="max-w-6xl mx-auto">
         <SectionHeader label="What I Know" title="Skills & Technologies" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
           {skillGroups.map((g) => (
             <div
               key={g.title}
@@ -448,10 +538,10 @@ function Skills() {
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 const projects = [
-    {
+  {
     title: "Literera – Intelligent Research Writing Assistant",
     desc: "LiterEra is a full-stack AI-powered research assistant offering four tools: a Citation Manager that scrapes and reformats citations across multiple styles, a Plagiarism Detector that highlights matched text with source links, a Paper Discovery Engine that ranks relevant papers by relevance score and citation count, and a PDF Analyzer that extracts summaries, keywords, insights, and weaknesses from uploaded research papers.",
-    tags: ["Tailwind", "MongoDB", "Express", "React", "Node","Python","REST API","FAST API","Transformer"],
+    tags: ["Tailwind", "MongoDB", "Express", "React", "Node", "Python", "REST API", "FastAPI", "Transformer"],
     emoji: "</>",
     color: "from-purple-500/10 to-violet-500/10",
     border: "border-purple-500/20",
@@ -459,25 +549,25 @@ const projects = [
     repo: "https://github.com/maryamtahirexe/LiterEraComplete.git",
   },
   {
-  title: "BeansSprout – Full-Stack Food Ordering App",
-  desc: "A MERN stack food ordering platform with JWT auth (access + refresh token rotation), role-based access control, and layered security via Helmet, rate limiting, and NoSQL injection protection. The frontend uses Redux Toolkit for state, Framer Motion for animations, and React.lazy() for code splitting. Axios interceptors handle silent token refresh for seamless, secure sessions.",
-  tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux Toolkit", "Framer Motion", "JWT", "bcrypt", "Axios", "Tailwind CSS", "Mongoose", "REST API"],
-  emoji: "</>",
-  color: "from-lime-500/10 to-green-500/10",
-  border: "border-lime-500/20",
-  accent: "text-lime-400",
-  repo: "https://github.com/maryamtahirexe/BeansSprout-Frontend.git",
-},
+    title: "BeansSprout – Full-Stack Food Ordering App",
+    desc: "A MERN stack food ordering platform with JWT auth (access + refresh token rotation), role-based access control, and layered security via Helmet, rate limiting, and NoSQL injection protection. The frontend uses Redux Toolkit for state, Framer Motion for animations, and React.lazy() for code splitting. Axios interceptors handle silent token refresh for seamless, secure sessions.",
+    tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux Toolkit", "Framer Motion", "JWT", "bcrypt", "Axios", "Tailwind CSS", "Mongoose", "REST API"],
+    emoji: "</>",
+    color: "from-lime-500/10 to-green-500/10",
+    border: "border-lime-500/20",
+    accent: "text-lime-400",
+    repo: "https://github.com/maryamtahirexe/BeansSprout-Frontend.git",
+  },
   {
-  title: "HotelHub – Flutter Hotel Booking App",
-  desc: "A Flutter mobile app for searching and booking hotels with advanced filters and facility selection. Users can register their own hotel, manage and edit reservations, and submit feedback — all within a clean, responsive mobile experience.",
-  tags: ["Flutter", "Dart", "Mobile", "Firebase", "REST API"],
-  emoji: "</>",
-  color: "from-sky-500/10 to-blue-500/10",
-  border: "border-sky-500/20",
-  accent: "text-sky-400",
-  repo: "https://github.com/maryamtahirexe/Fluuter-app.git",
-},
+    title: "HotelHub – Flutter Hotel Booking App",
+    desc: "A Flutter mobile app for searching and booking hotels with advanced filters and facility selection. Users can register their own hotel, manage and edit reservations, and submit feedback — all within a clean, responsive mobile experience.",
+    tags: ["Flutter", "Dart", "Mobile", "Firebase", "REST API"],
+    emoji: "</>",
+    color: "from-sky-500/10 to-blue-500/10",
+    border: "border-sky-500/20",
+    accent: "text-sky-400",
+    repo: "https://github.com/maryamtahirexe/Fluuter-app.git",
+  },
   {
     title: "AI-Driven Sports League Scheduling System",
     desc: "A full-stack scheduling platform designed to automate sports league operations, including match planning, team management, and resource allocation. The system incorporates scheduling logic to avoid conflicts, optimize time slots, and manage venues efficiently. Built with a dynamic frontend and Python-powered backend for handling scheduling constraints and real-time updates.",
@@ -491,7 +581,7 @@ const projects = [
   {
     title: "KarayeDar",
     desc: "A web application built with MERN Stack to handle tenant management, enabling landlords to manage tenants, rent tracking, damage control and property records in real-time.",
-    tags: ["MERN Stack", "MongoDB","Node.js","Express","React","Tailwind"],
+    tags: ["MERN Stack", "MongoDB", "Node.js", "Express", "React", "Tailwind"],
     emoji: "</>",
     color: "from-cyan-500/10 to-sky-500/10",
     border: "border-cyan-500/20",
@@ -510,8 +600,8 @@ const projects = [
   },
   {
     title: "DiagnoPro – AI-Based Disease Diagnosis System using Prolog",
-    desc: "An intelligent diagnostic system that predicts diseases based on user-provided symptoms using rule-based reasoning and logical inference with Genetic Algorithm. The application integrates Prolog’s backward chaining algorithm for decision-making, enabling accurate disease prediction through knowledge-based rules. A Python-based GUI (Tkinter) provides an interactive interface, bridging symbolic AI with user-friendly design.",
-    tags: ["Python", "tkinter", "Prolog","Genetic Algorithm"],
+    desc: "An intelligent diagnostic system that predicts diseases based on user-provided symptoms using rule-based reasoning and logical inference with Genetic Algorithm. The application integrates Prolog's backward chaining algorithm for decision-making, enabling accurate disease prediction through knowledge-based rules. A Python-based GUI (Tkinter) provides an interactive interface, bridging symbolic AI with user-friendly design.",
+    tags: ["Python", "Tkinter", "Prolog", "Genetic Algorithm"],
     emoji: "</>",
     color: "from-green-500/10 to-emerald-500/10",
     border: "border-green-500/20",
@@ -531,7 +621,7 @@ const projects = [
   {
     title: "Cloud-Native Application Deployment with CI/CD Pipeline",
     desc: "Implemented a cloud-based deployment pipeline using AWS services, Docker containerization, and Jenkins automation. Designed a CI/CD workflow to ensure continuous integration, automated testing, and seamless deployment, improving application reliability and scalability.",
-    tags: ["AWS", "Docker", "Jenkins", "CI/CD","Docker Compose"],
+    tags: ["AWS", "Docker", "Jenkins", "CI/CD", "Docker Compose"],
     emoji: "</>",
     color: "from-orange-500/10 to-red-500/10",
     border: "border-orange-500/20",
@@ -561,7 +651,7 @@ function ProjectCard({ p }) {
           href={p.repo}
           target="_blank"
           rel="noreferrer"
-          className={`${p.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+          className={`${p.accent} opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-300`}
           title="View on GitHub"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -610,13 +700,13 @@ function ProjectCard({ p }) {
 
 function Projects() {
   return (
-    <section id="projects" className="py-28 relative z-10 px-6">
+    <section id="projects" className="py-20 sm:py-28 relative z-10 px-6">
       <div className="max-w-6xl mx-auto">
         <SectionHeader label="My Work" title="Featured Projects" />
         <p className="text-slate-400 text-center mt-4 max-w-lg mx-auto">
-          The following are the projects on which I have worked on, with their Github Repositories!
+          The following are the projects I've worked on, each with a link to its GitHub repository.
         </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-14">
           {projects.map((p) => (
             <ProjectCard key={p.title} p={p} />
           ))}
@@ -629,10 +719,10 @@ function Projects() {
 // ─── Contact ──────────────────────────────────────────────────────────────────
 function Contact() {
   return (
-    <section id="contact" className="py-28 relative z-10 px-6">
+    <section id="contact" className="py-20 sm:py-28 relative z-10 px-6">
       <div className="max-w-3xl mx-auto text-center">
         <SectionHeader label="Get In Touch" title="Let's Work Together" />
-        <p className="text-slate-400 mt-4 text-lg">
+        <p className="text-slate-400 mt-4 text-base sm:text-lg">
           I'm actively looking for internships and full-time opportunities.
           Whether you have a project or just want to say hi — my inbox is always
           open!
@@ -640,7 +730,7 @@ function Contact() {
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="mailto:maryamtahir061@gmail.com"
-            className="group flex items-center justify-center gap-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg shadow-purple-900/40 hover:-translate-y-1"
+            className="group flex items-center justify-center gap-3 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white px-8 py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 shadow-lg shadow-purple-900/40 hover:-translate-y-1 break-all sm:break-normal"
           >
             maryamtahir061@gmail.com
           </a>
@@ -686,7 +776,7 @@ function SectionHeader({ label, title }) {
       <span className="inline-block text-xs tracking-widest uppercase font-bold text-pink-400 bg-pink-400/10 border border-pink-400/20 rounded-full px-4 py-1 mb-4">
         {label}
       </span>
-      <h2 className="font-display text-5xl font-black text-white">{title}</h2>
+      <h2 className="font-display text-4xl sm:text-5xl font-black text-white">{title}</h2>
       <div className="mt-4 w-16 h-1 mx-auto rounded-full bg-gradient-to-r from-pink-400 to-purple-500" />
     </div>
   );
@@ -704,7 +794,7 @@ function Footer() {
 // ─── App ──────────────────────────────────────────────────────────────────────
 export default function App() {
   return (
-    <div className="bg-[#0a0118] min-h-screen text-white font-sans">
+    <div className="bg-[#0a0118] min-h-screen text-white font-sans overflow-x-hidden">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -734,6 +824,12 @@ export default function App() {
         .animate-spin-slow { animation: spin-slow 12s linear infinite; }
         .animate-fadeInUp { animation: fadeInUp 0.8s ease-out both; }
         .animate-fadeInRight { animation: fadeInRight 0.8s ease-out 0.3s both; }
+
+        @media (prefers-reduced-motion: reduce) {
+          .animate-float, .animate-spin-slow, .animate-fadeInUp, .animate-fadeInRight, .animate-pulse, .animate-ping {
+            animation: none !important;
+          }
+        }
 
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0a0118; }
